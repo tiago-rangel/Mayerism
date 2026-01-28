@@ -99,7 +99,7 @@ MAYERISM would not be possible without the incredible open-source work of others
   Created by Jatin Chowdhury  
   Inspiration and reference for transparent overdrive design.
 
-- [**TS-808-Ultra**](https://github.com/jstubbs/ts-808-ultra)  
+- [**TS-808-Ultra**](https://github.com/JamesStubbsEng/TS-808-Ultra)  
   Created by James Stubbs  
   Reference implementation for classic Tube Screamer–style overdrive behavior.
 
