@@ -11,13 +11,18 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Fix C++ Code Errors Automatically
+        run: |
+          # Substitui 'std::powf' por 'std::pow' no arquivo problemático
+          sed -i 's/std::powf/std::pow/g' Source/PluginProcessor.cpp
+
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake libasound2-dev libjack-jackd2-dev libfreetype6-dev libx11-dev libxcomposite-dev libxcursor-dev libxext-dev libxinerama-dev libxrandr-dev libxrender-dev build-essential
 
       - name: Configure CMake
-        run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DJUCE_BUILD_LV2=OFF
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DJUCE_BUILD_LV2=OFF -DCMAKE_CXX_FLAGS="-fpermissive"
 
       - name: Build
         run: cmake --build build --config Release -- -j $(nproc)
